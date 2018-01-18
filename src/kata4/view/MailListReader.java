@@ -26,7 +26,7 @@ public class MailListReader {
     
     while ((mail = reader.readLine()) != null) {
         if (mail.indexOf('@')==-1) {
-            //No hacemos nada si el ocrreo no contiene "@"
+            //No hacemos nada si el correo no contiene "@"
             
         } else {
             //Añadimos el correo a la lista
