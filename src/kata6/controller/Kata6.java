@@ -3,29 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kata4.controller;
+package kata6.controller;
 
 import java.io.IOException;
 import java.util.List;
-import kata4.model.Histogram;
-import kata4.model.Mail;
-import kata4.view.HistogramDisplay;
-import kata4.view.MailHistogramBuilder;
-import kata4.view.MailListReader;
+import kata6.model.Histogram;
+import kata6.model.Mail;
+import kata6.view.HistogramDisplay;
+import kata6.view.MailHistogramBuilder;
+import kata6.view.MailListReader;
 
 /**
  *
  * @author Entrar
  */
-public class Kata4 {
+public class Kata6 {
 
     /**
      * @param args the command line arguments
      */
     
     public static void main(String[] args) throws Exception {
-        Kata4 kata4 = new Kata4();
-        kata4.execute();
+        Kata6 kata6 = new Kata6();
+        kata6.execute();
         
     }
     
@@ -40,7 +40,7 @@ public class Kata4 {
     }
     
     private void input() throws IOException {
-        filename = "/home/niko/NetBeansProjects/Kata4/src/kata4/controller/emails.txt";
+        filename = "/home/niko/NetBeansProjects/Kata6/src/kata6/controller/emails.txt";
         mailList = MailListReader.read(filename);
     }
     
