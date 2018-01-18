@@ -11,9 +11,11 @@ package kata6.model;
  */
 public class Mail {
     private final String mail;
+    private final int id;
 
-    public Mail(String mail) {
+    public Mail(int id, String mail) {
         this.mail = mail;
+        this.id = id;
     }
 
     public String getMail() {
@@ -21,9 +23,8 @@ public class Mail {
     }
     
     
-    public String getdomain() {
-        String[] splitted = mail.split("@");
-        return splitted[1];
+    public int getId() {
+        return id;
     }
     
 }

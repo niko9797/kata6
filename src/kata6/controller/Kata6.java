@@ -10,7 +10,7 @@ import java.util.List;
 import kata6.model.Histogram;
 import kata6.model.Mail;
 import kata6.view.HistogramDisplay;
-import kata6.view.MailHistogramBuilder;
+import kata6.view.HistogramBuilder;
 import kata6.view.MailListReader;
 
 /**
@@ -29,9 +29,17 @@ public class Kata6 {
         
     }
     
-    private String filename;
+    private String nameFile;
     private List<Mail> mailList;
     private Histogram<String> histogram;
+    private List<Mail> listMail;
+    
+    private Histogram<String> domains;
+    private Histogram<Character> letters;
+    private HistogramBuilder<Mail> builder;
+
+
+
     
     private void execute () throws Exception {
         input();
@@ -40,18 +48,33 @@ public class Kata6 {
     }
     
     private void input() throws IOException {
-        filename = "/home/niko/NetBeansProjects/Kata6/src/kata6/controller/emails.txt";
-        mailList = MailListReader.read(filename);
+        nameFile = "/home/niko/NetBeansProjects/Kata6/src/kata6/controller/emails.txt";
+        listMail = MailListReader.read(nameFile); 
     }
     
     private void process() throws Exception {
-        histogram = MailHistogramBuilder.build(mailList);
+        
+            HistogramBuilder<Mail> builder = new HistogramBuilder<>(listMail);
+            
+                domains = builder.build(new Attribute<Mail, String>() {
+            @Override
+            public String get(Mail item) {
+                return item.getMail().split("@")[1];
+            }
+        });
+        
+        letters = builder.build(new Attribute<Mail, Character>() {
+            @Override
+            public Character get(Mail item) {
+                return item.getMail().charAt(0);
+            }
+});
     
     }
     
     private void output() {
-        HistogramDisplay histoDisplay = new HistogramDisplay(histogram);
-        histoDisplay.execute();
+    new HistogramDisplay(domains, "Domains").execute();
+    new HistogramDisplay(letters, "First character").execute();
     
     
     }

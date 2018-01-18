@@ -12,7 +12,7 @@ import static javafx.scene.input.KeyCode.T;
 
 public class Histogram <T> {
 
-    Map<T,Integer> map = new HashMap<>();
+    private final Map<T,Integer> map = new HashMap<>();
     
     public Integer get(T key) {
         return map.get(key);
